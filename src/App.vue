@@ -66,7 +66,7 @@ body {
 
 html,
 body {
-  color: #8aa4af;
+  color: #3e3e3e;
   height: 100%;
 }
 
@@ -80,12 +80,12 @@ body {
 }
 
 .header {
-  background-color: #181f46;
+  background-color: #ffffff;
   height: 10%;
 }
 
 .aside {
-  background-color: #181f46;
+  background-color: #f9f9fa;
   overflow: hidden;
 }
 
@@ -106,7 +106,7 @@ body {
 
 .sys-search {
   margin-bottom: 10px;
-  background-color: #f9f9f9;
+  background-color: #f9f9fa;
   /*margin-top: 10px;*/
   padding: 20px 10px 0;
 }

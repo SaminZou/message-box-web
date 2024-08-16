@@ -1,9 +1,9 @@
 <template>
   <el-menu
     class="menu"
-    background-color="#181F46"
-    text-color="#8aa4af"
-    active-text-color="#ffffff"
+    background-color="#f3f7fa"
+    text-color="#3e3e3e"
+    active-text-color="#0b5ff6"
     :unique-opened="false"
     :default-active="$route.path"
     router
@@ -30,4 +30,12 @@ export default {
 .el-menu {
   border-right: none;
 }
+
+/* .el-menu-item.is-active {
+  background-color: #f3f7fa !important;
+}
+
+.el-menu-item:hover {
+  background-color: #f3f7fa !important;
+} */
 </style>

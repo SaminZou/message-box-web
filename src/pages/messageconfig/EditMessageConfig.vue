@@ -35,8 +35,9 @@
       >
       </el-input>
       <el-button v-else class="button-new-tag" size="small" @click="showInput"
-        >+ New Tag</el-button
+        >+ New</el-button
       >
+      <p>如：Badge / Carousel / MessageBox / Loading / Toast / Notification</p>
     </el-form-item>
 
     <el-form-item label="描述" prop="desc">
@@ -102,17 +103,6 @@
       </el-select>
     </el-form-item>
 
-    <el-form-item label="渲染类型">
-      <el-checkbox-group v-model="form.renderType">
-        <el-checkbox
-          v-for="ele in renderTypeCheckboxData"
-          :key="ele.value"
-          :label="ele.value"
-          >{{ ele.label }}</el-checkbox
-        >
-      </el-checkbox-group>
-    </el-form-item>
-
     <el-form-item label="过期时间" required>
       <el-input
         v-model="form.expireTime"
@@ -153,7 +143,6 @@ export default {
         id: null,
         priority: 2,
         clearMode: 0,
-        renderType: [],
         channelTags: [],
         deliveryType: 0,
         expireTime: 0,
@@ -173,20 +162,13 @@ export default {
         { value: 0, label: "已读不销毁" },
         { value: 1, label: "已读销毁" },
       ],
-      renderTypeCheckboxData: [
-        { value: 0, label: "Badge" },
-        { value: 1, label: "轮播通知" },
-        { value: 2, label: "弹窗" },
-        { value: 3, label: "Toast" },
-        { value: 4, label: "Notification" },
-      ],
       channelTagsCheckboxData: [
         { value: "APP", label: "移动端", disabled: false },
         { value: "WEB", label: "Web端", disabled: false },
         { value: "EMAIL", label: "Email", disabled: false },
         { value: "JG", label: "极光", disabled: false },
-        { value: "SMS", label: "短信（未开发）", disabled: true },
-        { value: "WECHAT", label: "微信（未开发）", disabled: true },
+        { value: "SMS", label: "短信（TODO）", disabled: true },
+        { value: "WECHAT", label: "微信（TODO）", disabled: true },
       ],
     };
   },

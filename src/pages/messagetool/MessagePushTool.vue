@@ -34,99 +34,8 @@
       <el-input v-model="form.email" placeholder="email"></el-input>
     </el-form-item>
 
-    <!-- <el-form-item label="接收者" required>
-      <el-tag
-        :key="recId"
-        v-for="recId in form.recIds"
-        closable
-        :disable-transitions="false"
-        @close="handleRecIdClose(recId)"
-      >
-        {{ recId }}
-      </el-tag>
-      <el-input
-        class="input-new-tag"
-        v-if="recIdInputVisible"
-        v-model="recIdInputValue"
-        ref="saveRecIdTagInput"
-        size="small"
-        @keyup.enter.native="recIdHandleInputConfirm"
-        @blur="recIdHandleInputConfirm"
-      >
-      </el-input>
-      <el-button
-        v-else
-        class="button-new-tag"
-        size="small"
-        @click="showRecIdInput"
-        >+</el-button
-      >
-    </el-form-item>
-
-    <el-form-item label="手机号">
-      <el-tag
-        :key="mobile"
-        v-for="mobile in form.mobiles"
-        closable
-        :disable-transitions="false"
-        @close="handleMobileClose(mobile)"
-      >
-        {{ mobile }}
-      </el-tag>
-      <el-input
-        class="input-new-tag"
-        v-if="mobileInputVisible"
-        v-model="mobileInputValue"
-        ref="saveMoblieTagInput"
-        size="small"
-        @keyup.enter.native="mobileHandleInputConfirm"
-        @blur="mobileHandleInputConfirm"
-      >
-      </el-input>
-      <el-button
-        v-else
-        class="button-new-tag"
-        size="small"
-        @click="showMobileInput"
-        >+</el-button
-      >
-    </el-form-item>
-
-    <el-form-item label="Email">
-      <el-tag
-        :key="email"
-        v-for="email in form.emails"
-        closable
-        :disable-transitions="false"
-        @close="handleEmailClose(email)"
-      >
-        {{ email }}
-      </el-tag>
-      <el-input
-        class="input-new-tag"
-        v-if="emailInputVisible"
-        v-model="emailInputValue"
-        ref="saveMoblieTagInput"
-        size="small"
-        @keyup.enter.native="emailHandleInputConfirm"
-        @blur="emailHandleInputConfirm"
-      >
-      </el-input>
-      <el-button
-        v-else
-        class="button-new-tag"
-        size="small"
-        @click="showEmailInput"
-        >+</el-button
-      >
-    </el-form-item> -->
-
     <el-form-item label="附加数据">
       <complex-input v-bind:kv="extData" />
-    </el-form-item>
-
-    <el-form-item label="极光附加数据">
-      <complex-input v-bind:kv="jgExtData" />
     </el-form-item>
 
     <el-form-item>
@@ -143,7 +52,6 @@ export default {
   data() {
     return {
       extData: [],
-      jgExtData: [],
       labelWidth: "120px",
       recIdInputVisible: false,
       mobileInputVisible: false,
@@ -257,18 +165,8 @@ export default {
         );
     },
 
-    convertJgExtData() {
-      this.form.jgExt = this.jgExtData
-        .filter((item) => item["key"] !== "" && item["value"] !== "")
-        .reduce(
-          (obj, item) => Object.assign(obj, { [item.key]: item.value }),
-          {}
-        );
-    },
-
     sendMsg() {
       this.convertExtData();
-      this.convertJgExtData();
 
       this.apiRequest
         .post(this.url.data.tool.send, this.form, {
